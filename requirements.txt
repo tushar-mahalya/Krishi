@@ -1,3 +1,6 @@
 pandas
 numpy
+matplotlib
+ipykernel
+tensorflow
 scikit-learn
