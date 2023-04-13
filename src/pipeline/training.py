@@ -1,3 +1,4 @@
+import tensorflow as tf
 from tensorflow.data import AUTOTUNE
 from keras.callbacks import EarlyStopping
 from keras import Sequential, layers, models
@@ -7,6 +8,7 @@ from keras.losses import SparseCategoricalCrossentropy
 from keras.utils import image_dataset_from_directory
 
 import sys
+import json
 from dataclasses import dataclass
 
 from src.exception import CustomException
@@ -66,21 +68,14 @@ class ModelTraining:
                                                                     image_size = self.image_dim,
                                                                     batch_size = self.batch_size)
 
-                logging.info(f'Training, Testing and Validation data is read from \'{plant}\' directory')
+            logging.info('Succesfully loaded Training, Testing and Validation Data.')
 
-            # Prefetch, Cache and Shuffle the dataset for optimized training
-            for plant in self.data_info_dict.keys():
-                self.train_dataset[plant] = self.train_dataset[plant].cache().shuffle(1000).prefetch(buffer_size = AUTOTUNE)
-                self.test_dataset[plant] = self.test_dataset[plant].cache().shuffle(1000).prefetch(buffer_size = AUTOTUNE)
-                self.val_dataset[plant] = self.val_dataset[plant].cache().shuffle(1000).prefetch(buffer_size = AUTOTUNE)
-            logging.info('Prefetch, Cache and Shuffling all datasets completed.')
-            
         except Exception as e:
             raise CustomException(e,sys)
 
-    def baseline_model(self, plant:str, classes:dict):
+    def baseline_model(self, plant:str, classes:int):
     
-        n_classes = len(classes[f'{plant}'])
+        n_classes = classes
         
         resize_rescale_layer = Sequential([
             Resizing(self.image_dim[0],
@@ -90,7 +85,7 @@ class ModelTraining:
 
         model = models.Sequential([
             resize_rescale_layer,
-            Conv2D(32, kernel_size = (3,3), activation='relu', input_shape=input_shape),
+            Conv2D(32, kernel_size = (3,3), activation='relu', input_shape=self.input_shape),
             MaxPooling2D((2, 2)),
             Conv2D(64,  kernel_size = (3,3), activation='relu'),
             MaxPooling2D((2, 2)),
@@ -105,9 +100,9 @@ class ModelTraining:
             Flatten(),
             Dense(64, activation='relu'),
             Dense(n_classes, activation='softmax'),
-        ], name = f'{plant}_Model')
+        ])
 
-        model.build(input_shape=input_shape)
+        model.build(input_shape=self.input_shape)
 
         return model
     
@@ -126,16 +121,16 @@ class ModelTraining:
             for plant in self.data_info_dict.keys():
 
                 classes = len(self.data_info_dict[plant]['classes'])
-                model = baseline_model(plant, classes)
+                model = self.baseline_model(plant, classes)
                 model.compile(
                     optimizer='adam',
                     loss=SparseCategoricalCrossentropy(from_logits=False),
                     metrics=['accuracy']
                 )
 
-                logging.info(f'Model loaded and compiled for {plant} Dataset')
+                logging.info(f'[{plant}] Model loaded and compiled. Training started.....')
 
-                history = mode.fit(
+                history = model.fit(
                     self.train_dataset[plant],
                     batch_size=self.batch_size,
                     validation_data=self.val_dataset[plant],
@@ -145,13 +140,13 @@ class ModelTraining:
                                   )
                 model.save(f'/home/studio-lab-user/Krishi/models/{plant}.h5')
 
-                logging.info(f'{plant} Model Training finished. Model saved in \'models/{plant}.h5\'')
+                logging.info(f'[{plant}] Model Training finished. Model saved in \'models/{plant}.h5\'')
 
-                train_loss, train_acc = model.evaluate(self.train_dataset[plant])
-                test_loss, test_acc = model.evaluate(self.test_dataset[plant])
-                val_loss, val_acc = model.evaluate(self.val_dataset[plant])
+                train_loss, train_acc = model.evaluate(self.train_dataset[plant], verbose = 0)
+                test_loss, test_acc = model.evaluate(self.test_dataset[plant], verbose = 0)
+                val_loss, val_acc = model.evaluate(self.val_dataset[plant], verbose = 0)
 
-                logging.info(f'{plant} Model Evaluation Completed')
+                logging.info(f'[{plant}] Model Evaluation Completed')
 
                 acc_metrics = {
                     'Train Accuracy' : train_acc,
@@ -172,8 +167,10 @@ class ModelTraining:
                     'Training History': history.history
                 }
 
-                logging.info('Evaluation metrics, Training history and model path recorded')
-
+                logging.info(f'[{plant}] Evaluation metrics, Training history and model path saved')
+                
+                tf.keras.backend.clear_session()
+                    
             with open('/home/studio-lab-user/Krishi/artifacts/model_info.json', "w") as outfile:
                 json.dump(model_info, outfile)
 
