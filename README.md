@@ -1,7 +1,7 @@
 # __KRISHI__
 [![Repo Size](https://img.shields.io/github/repo-size/tushar-mahalya/Krishi?style=flat-square)](https://github.com/tushar-mahalya/Krishi)  ![License](https://img.shields.io/badge/license-MIT-red.svg)  ![Project Status](https://img.shields.io/badge/status-In_Process-brightgreen.svg)
 
-Kirshi is a web application that allows users to detect diseases in plants by simply uploading pictures of their leaves. The application currently supports the detection of diseases in 9 different plants - 
+Krishi is a web application that allows users to detect diseases in plants by simply uploading pictures of their leaves. The application currently supports the detection of diseases in 9 different plants - 
 * Apple
 * Bell Pepper
 * Cherry
@@ -12,7 +12,7 @@ Kirshi is a web application that allows users to detect diseases in plants by si
 * Strawberry
 * Tomato.
 
-## <u>Getting started</u>
+## Getting started
 To use the application, you can visit the live version hosted on the following URL:
 
    `https://my-website.com/`
@@ -36,7 +36,7 @@ Alternatively, you can run the application on your local machine by following th
 		http://localhost:5000/
 
 
-## <u>Hardware Specification</u>
+## Hardware Specification
 
 For this project I've used [Amazon Sagemaker Studio Lab](https://studiolab.sagemaker.aws/) EC2-Instance which have the following specs -
 
@@ -51,7 +51,7 @@ For this project I've used [Amazon Sagemaker Studio Lab](https://studiolab.sagem
 | V-RAM | 15GB |
 
 
-## <u>Contributing</u>
+## Contributing
 
 If you would like to contribute to the project, you can follow the steps below:
 
@@ -62,6 +62,6 @@ If you would like to contribute to the project, you can follow the steps below:
 5. Push your changes to your forked repository.
 6. Create a pull request from your forked repository to the original repository.
 
-## <u>License</u>
+## License
 
 This project is licensed under the MIT License. You are free to use, modify and distribute the code as per the license terms.
