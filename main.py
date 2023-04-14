@@ -1,5 +1,3 @@
-# Few segements of this code was adapted from 'https://github.com/codebasics/potato-disease-classification/blob/main/api/main.py'
-
 from fastapi import FastAPI, File, UploadFile, Query, Depends
 import numpy as np
 import json
@@ -8,6 +6,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 app = FastAPI()
+
 
 # Loading information of saved models and training dataset
 with open('/home/studio-lab-user/Krishi/artifacts/dataset_info.json') as f:
@@ -28,7 +27,6 @@ def get_model(plant_type: str):
 @app.get("/")
 async def ping():
     return "Hello, I am alive"
-
 
 @app.post("/detect-disease")
 async def detect_disease(plant_type: str, file: UploadFile = File(...), model = Depends(get_model)):
