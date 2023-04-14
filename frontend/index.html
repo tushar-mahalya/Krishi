@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Plant Disease Detector</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form id="plant-disease-form">
+            <h1>Plant Disease Detector</h1>
+            <label for="plant-type">Select plant type:</label>
+            <select id="plant-type">
+                <option value="tomato">Apple</option>
+                <option value="potato">Bell Pepper</option>
+                <option value="apple">Cherry</option>
+                <option value="pepper">Corn (Maize)</option>
+                <option value="corn">Grape</option>
+                <option value="grape">Peach</option>
+                <option value="blueberry">Potato</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="corn">Tomato</option>
+            </select>
+            <label for="image-file">Select an image of a diseased leaf:</label>
+            <input type="file" id="image-file" accept="image/*">
+            <input type="submit" value="Detect Disease">
+        </form>
+        <div id="result-div"></div>
+        <div id="error-div"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
