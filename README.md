@@ -15,25 +15,25 @@ Plant Disease Detector is a web application that allows users to detect diseases
 ## <u>Getting started</u>
 To use the application, you can visit the live version hosted on the following URL:
 
-	https://my-website.com/
+   `https://my-website.com/`
     
 Alternatively, you can run the application on your local machine by following the steps below:
 
 1. Clone the repository to your local machine by running the following command:  
 
-	`git clone https://github.com/tushar-mahalya/Krishi.git`
+		git clone https://github.com/tushar-mahalya/Krishi.git
     
 2. Install the necessary dependencies by running the following command:
 
-	`pip install -r requirements.txt`
+		pip install -r requirements.txt
 
 3. Start the application by running the following command:
 
-	`python app.py`
+		python app.py
     
 4. Open your web browser and navigate to the following URL:
 
-	`http://localhost:5000/`
+		http://localhost:5000/
 
 
 ## <u>Hardware Specification</u>
