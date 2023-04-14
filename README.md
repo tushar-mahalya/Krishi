@@ -1,7 +1,7 @@
-# <center>__KRISHI__</center>
+# __KRISHI__
 [![Repo Size](https://img.shields.io/github/repo-size/tushar-mahalya/Krishi?style=flat-square)](https://github.com/tushar-mahalya/Krishi)  ![License](https://img.shields.io/badge/license-MIT-red.svg)  ![Project Status](https://img.shields.io/badge/status-In_Process-brightgreen.svg)
 
-Plant Disease Detector is a web application that allows users to detect diseases in plants by simply uploading pictures of their leaves. The application currently supports the detection of diseases in 9 different plants - 
+Kirshi is a web application that allows users to detect diseases in plants by simply uploading pictures of their leaves. The application currently supports the detection of diseases in 9 different plants - 
 * Apple
 * Bell Pepper
 * Cherry
