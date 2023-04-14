@@ -1,6 +1,11 @@
 pandas
 numpy
 matplotlib
-ipykernel
+seaborn
 tensorflow
 scikit-learn
+json
+fastapi
+uvicorn
+gunicorn
+python-multipart
