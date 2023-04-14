@@ -21,19 +21,19 @@ Alternatively, you can run the application on your local machine by following th
 
 1. Clone the repository to your local machine by running the following command:  
 
-	git clone https://github.com/tushar-mahalya/Krishi.git
+	`git clone https://github.com/tushar-mahalya/Krishi.git`
     
 2. Install the necessary dependencies by running the following command:
 
-	pip install -r requirements.txt
+	`pip install -r requirements.txt`
 
 3. Start the application by running the following command:
 
-	python app.py
+	`python app.py`
     
 4. Open your web browser and navigate to the following URL:
 
-	http://localhost:5000/
+	`http://localhost:5000/`
 
 
 ## <u>Hardware Specification</u>
