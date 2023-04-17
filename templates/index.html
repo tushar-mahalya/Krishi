@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Tushar Sharma">
+      <meta name="description" content="Detect the disease of a plant by simply uploading the picture of its leaf !">
+      <title>KRISHI</title>
+      <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename = 'css/style.css') }}">
+   </head>
+   <body>
+      <main>
+         <header>
+            <a class="github-button" href="https://github.com/tushar-mahalya/Krishi" target="_blank">
+            <i class="fab fa-github mt-2 ml-2 mr-2"></i>View Source Code
+            </a>
+            <img style="width: 400px; height: auto; display: block; margin: -25px auto;" src="{{url_for('static', filename='images/krishi-logo.png')}}" />
+         </header>
+         <!-- Main Content -->
+         <div class="container mt-5">
+            <div class="row justify-content-center">
+               <div class="col-lg-6"><br>
+                  <h4 class="text-center mb-4">Detect the disease of a plant by simply uploading the picture of its leaf !</h4>
+                  <form id="prediction-form" method = "post" enctype="multipart/form-data" action = "/detect_disease">
+                     <div class="form-group">
+                        <label for="plant-select">Select a plant - </label>
+                        <select class="form-control" id="plant-select" name="plant-type">
+                           <option value="Apple">Apple</option>
+                           <option value="Bell Pepper">Bell Pepper</option>
+                           <option value="Cherry">Cherry</option>
+                           <option value="Corn (Maize)">Corn (Maize)</option>
+                           <option value="Grape">Grape</option>
+                           <option value="Peach">Peach</option>
+                           <option value="Potato">Potato</option>
+                           <option value="Strawberry">Strawberry</option>
+                           <option value="Tomato">Tomato</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label for="plant-image">Upload an image of the plant leaf - </label>
+                        <label for="file-upload" class="custom-file-upload">
+                           <center>
+                              <i class="fas fa-cloud-upload-alt"></i> Upload Image
+                           </center>
+                        </label>
+                        <input style = "display: block; margin: auto;" id="file-upload" type="file" accept="image/*" name="plant-image" onchange="previewImage(event)" hidden>
+                        <img style = "display: block; margin: auto;" class = "mt-2" id="preview" src="">
+                     </div>
+                     <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Detect</button>
+                     </div>
+                  </form>
+                  <br>
+                  {% if detected_d %}
+                  <div style="display:flex; align-items:center;">
+                     <img src="{{url_for('static', filename='temp_img/temp_img.png')}}" alt="Image">
+                     <div style="margin-left: 20px;">
+                        <p><strong>Plant Type :</strong> {{ plant_tp }}</p>
+                        <p><strong>Detected Disease :</strong> <font color = "red">{{ detected_d }}</font></p>
+                        <p><strong>Confidence Score :</strong> {{ confi_scr }}</p>
+                     </div>
+                  </div>
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+         <footer>
+            <p>Developed with ❤️ by Tushar Sharma</p>
+            <div class="social-links">
+               <p class="connect-text">Connect with me :      
+                  <a href="https://github.com/tushar-mahalya" target="_blank"><i class="fab fa-github fa-lg" style="color: #211F1F;"></i></a>
+                  <a href="https://www.linkedin.com/in/tushar-5harma" target="_blank"><i class="fab fa-linkedin fa-lg" style="color: #0077B5;"></i></a>
+                  <a href="https://www.kaggle.com/tushar5harma" target="_blank"><i class="fab fa-kaggle fa-lg" style="color: #20BEFF;"></i></a>
+                  <a href="mailto:tusharmahalya@gmail.com" target="_blank"><i class="fas fa-envelope fa-lg" style="color: #C71628;"></i></a>
+                  <a href="https://twitter.com/Tushar_Mahalya" target="_blank"><i class="fab fa-twitter fa-lg" style="color: #1DA1F2;"></i></a>
+               </p>
+            </div>
+         </footer>
+         <!-- jQuery and Bootstrap JS -->
+         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-base.min.js" integrity="sha384-zKk9hLp/D1G93vL8Ax39cbtKzO5ouhCBHv5d71YrgxPYMJNGkSjb0Q0/Dv3yqShG"  crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-nnzoQxE7lxN+mJ3tb2X9xrlx+LoyDLe/k8oUCPzIa+EmeHuKjAIvCmfwZQ2Xf1Gs"  crossorigin="anonymous"></script>
+         <!-- Custom JS -->
+         <script>
+            function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+            var output = document.getElementById('preview');
+            output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            }
+         </script>
+      </main>
+   </body>
+</html>

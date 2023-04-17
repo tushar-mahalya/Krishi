@@ -1,0 +1,155 @@
+/* Custom CSS */
+ body {
+     background-color: #f2f2f2;
+     margin: 0;
+     padding: 0;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+}
+ h1, h4, h5 {
+     color: #66bb6a;
+}
+ main {
+     flex: 1;
+     padding-bottom: 100px;
+}
+ .btn-primary {
+     background-color: #66bb6a;
+     border-color: #66bb6a;
+}
+ .btn-primary:hover {
+     background-color: #4caf50;
+     border-color: #4caf50;
+}
+ .spinner-border {
+     display: inline-block;
+}
+ #prediction-result {
+     background-color: #fff;
+     margin-top: 50px;
+     padding: 20px;
+}
+ .card {
+     margin-top: 20px;
+     border: 2px solid #66bb6a;
+}
+ .card-title {
+     color: #66bb6a;
+     font-weight: bold;
+}
+ .card-text {
+     color: #333;
+}
+ select::-ms-expand, select::-webkit-select-menu {
+     display: none;
+}
+ select {
+     appearance: none;
+     -webkit-appearance: none;
+     border: none;
+     outline: none;
+     background-color: #8ABE53;
+     padding: 10px;
+     font-size: 16px;
+     color: #8ABE53;
+     border-radius: 5px;
+}
+ option:hover {
+     color: #8ABE53;
+     background-color: #f2f2f2;
+}
+ select:focus {
+     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+ label {
+     display: block;
+     margin-bottom: 10px;
+     font-size: 16px;
+     font-weight: bold;
+     color: #333;
+}
+ header {
+     margin-top: 0;
+}
+ footer {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     background-color: #f2f2f2;
+     padding: -5px;
+     text-align: center;
+     font-size: 14px;
+     color: #999;
+}
+ img:not([src]) {
+     visibility: hidden;
+}
+ img[alt=""] {
+     visibility: hidden;
+}
+ .social-links a {
+     display: inline-block;
+     margin-right: 10px;
+}
+ .social-links img {
+     width: 60px;
+     height: 60px;
+     border-radius: 80%;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+ .social-links a:hover img {
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+ .social-links a:not(:last-child) {
+     margin-right: 10px;
+}
+ .connect-text {
+     font-weight: bold;
+     margin-bottom: 10px;
+}
+ .github-button {
+     display: inline-block;
+     margin: 10px;
+     padding: 10px;
+     border: 2px solid black;
+     border-radius: 5px;
+     font-size: 18px;
+     text-decoration: none;
+     color: black;
+     margin-left: 10px;
+}
+ .github-button:hover {
+     background-color: black;
+     color: white;
+}
+ .github-button i {
+     margin-right: 10px;
+}
+ .github-button:hover i {
+     color: white;
+}
+ .custom-file-upload {
+     display: block;
+     margin: auto;
+     border: 1px solid #ccc;
+     padding: 6px 12px;
+     cursor: pointer;
+     font-size: 16px;
+     font-weight: bold;
+     color: #555;
+     border-radius: 5px;
+}
+ .custom-file-upload:hover {
+     background-color: #f4f4f4;
+}
+ .custom-file-upload i {
+     margin-right: 10px;
+}
+ #preview {
+     max-width: 300px;
+     max-height: 200px;
+     object-fit: cover;
+}
+ 
