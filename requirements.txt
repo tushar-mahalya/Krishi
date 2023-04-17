@@ -5,7 +5,6 @@ seaborn
 tensorflow
 scikit-learn
 json
-fastapi
-uvicorn
-gunicorn
+flask
 python-multipart
+jinja2
