@@ -61,10 +61,8 @@ def detect_disease():
     predicted_class = dataset_info[plant_type]['classes'][class_index]
     confidence_score = float(np.max(prediction[0]))
 
-    # Return the predicted class and confidence score
-    result = {"plant_type": plant_type, "predicted_class": predicted_class, "confidence_score": confidence_score}
     
-    return render_template('index.html', result = result, plant_tp = plant_type, detected_d = predicted_class, confi_scr = f"{confidence_score*100:.2f} %")
+    return render_template('index.html', plant_tp = plant_type, detected_d = predicted_class, confi_scr = f"{confidence_score*100:.2f} %")
 
 if __name__ == '__main__':
     app.run(debug = True)
