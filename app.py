@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, render_template
+from flask import jsonify, request
 from PIL import Image
 import numpy as np
 import json
@@ -25,13 +26,14 @@ def get_model(plant_type: str):
 
 @app.route("/")
 def ping():
-    return "Hello, I am alive"
+    return render_template('index.html')
 
 
-@app.route("/detect-disease", methods=["POST"])
+@app.route("/detect_disease", methods=["POST", "GET"])
 def detect_disease():
-    plant_type = request.form["plant_type"]
-    file = request.files["file"]
+    if request.method == 'POST':
+        plant_type = request.form["plant-type"]
+        file = request.files["plant-image"]
     
     # Check if plant type is valid
     model = get_model(plant_type)
@@ -39,8 +41,12 @@ def detect_disease():
         return {"error": "Invalid plant type"}
 
     # Load image into PIL Image object
-    image = Image.open(BytesIO(file.read()))
-
+    image = Image.open(BytesIO(file.read())).resize((256,256))
+    
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
+    image.save('static/temp_img/temp_img.png', format = 'PNG')
+    
     # Convert image to array
     image_arr = np.array(image)
     
@@ -56,4 +62,9 @@ def detect_disease():
     confidence_score = float(np.max(prediction[0]))
 
     # Return the predicted class and confidence score
-    return {"plant_type": plant_type, "predicted_class": predicted_class, "confidence_score": confidence_score}
+    result = {"plant_type": plant_type, "predicted_class": predicted_class, "confidence_score": confidence_score}
+    
+    return render_template('index.html', result = result, plant_tp = plant_type, detected_d = predicted_class, confi_scr = f"{confidence_score*100:.2f} %")
+
+if __name__ == '__main__':
+    app.run(debug = True)
