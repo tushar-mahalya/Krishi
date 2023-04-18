@@ -4,7 +4,6 @@ matplotlib
 seaborn
 tensorflow
 scikit-learn
-json
 flask
 python-multipart
 jinja2
