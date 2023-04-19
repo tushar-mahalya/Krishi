@@ -5,5 +5,6 @@ seaborn
 tensorflow
 scikit-learn
 flask
+gunicorn
 python-multipart
 jinja2
