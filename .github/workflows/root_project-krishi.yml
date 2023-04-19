@@ -5,9 +5,9 @@
 name: Build and deploy Python app to Azure Web App - project-krishi
 
 on:
-  push:
-    branches:
-      - root
+#  push:
+#    branches:
+#      - root
   workflow_dispatch:
 
 jobs:
