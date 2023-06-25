@@ -12,10 +12,15 @@ Krishi is a web application that allows users to detect diseases in plants by si
 * Strawberry
 * Tomato.
 
+#### Demo Video -
+<div>
+    <img src = 'resources/project_demo.gif'/>
+</div>
+
 ## Getting started
 To use the application, you can visit the live version hosted on the following URL:
 
-   `https://my-website.com/`
+   `https://project-krishi.azurewebsites.net/`
     
 Alternatively, you can run the application on your local machine by following the steps below:
 
