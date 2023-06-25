@@ -2,36 +2,20 @@
 [![Repo Size](https://img.shields.io/github/repo-size/tushar-mahalya/Krishi?style=flat-square)](https://github.com/tushar-mahalya/Krishi)  ![License](https://img.shields.io/badge/license-MIT-red.svg)  ![Project Status](https://img.shields.io/badge/status-Completed-brightgreen.svg)
 
 Krishi is a web application that allows users to detect diseases in plants by simply uploading pictures of their leaves. The application currently supports the detection of upto 21 common deseases in 9 different plants with an accuracy of more than 95%.  
-* Apple
-  1. Black Rot
-  2. Apple Scab
-  3. Cedar Apple Rust
-* Bell Pepper
-  1. Bacterial Spot
-* Cherry
-  1. Powdery Mildew
-* Corn (Maize)
-  1. Common Rust
-  2. Cercospora Leaf Spot
-  3. Northern Leaf Blight
-* Grape
-  1. Black Rot
-  2. Esca (Black Measles)
-  3. Leaf Blight
-* Peach
-  1. Bacterial Spot
-* Potato
-  1. Early Blight
-  2. Late Blight
-* Strawberry
-  1. Leaf Scorch
-* Tomato
-  1. Bacterial Spot
-  2. Early Blight
-  3. Healthy
-  4. Late Blight
-  5. Septoria Leaf Spot
-  6. Yellow Leaf Curl Virus
+
+| Plant | Disease |
+| --- | --- |
+| Apple | ◈ Black Rot<br>◈ Apple Scab<br>◈ Cedar Apple Rust |
+| Bell Pepper | ◈ Bacterial Spot |
+| Cherry | ◈ Powdery Mildew |
+| Corn (Maize) | ◈ Common Rust<br>◈ Cercospora Leaf Spot<br>◈ Northern Leaf Blight |
+| Grape | ◈ Black Rot<br>◈ Esca (Black Measles)<br>◈ Leaf Blight |
+| Peach | ◈ Bacterial Spot |
+| Potato | ◈ Early Blight<br>◈ Late Blight |
+| Strawberry | ◈ Leaf Scorch |
+| Tomato | ◈ Bacterial Spot<br>◈ Early Blight<br>◈ Late Blight<br>◈ Septoria Leaf Spot<br>◈ Yellow Leaf Curl Virus |
+
+
 
 #### Demo Video -
 <p align="center" style="text-align:center;">
