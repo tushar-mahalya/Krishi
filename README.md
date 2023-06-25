@@ -13,9 +13,10 @@ Krishi is a web application that allows users to detect diseases in plants by si
 * Tomato.
 
 #### Demo Video -
-<div>
-    <img src = 'resources/project_demo.gif'/>
-</div>
+<p align="center" style="text-align:center;">
+    <img src = 'resources/project_demo.gif' width = '500' />
+</p>
+
 
 ## Getting started
 To use the application, you can visit the live version hosted on the following URL:
