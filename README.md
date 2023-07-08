@@ -21,6 +21,18 @@ Krishi is a web application that allows users to detect diseases in plants by si
 | Strawberry | ◈ Leaf Scorch |
 | Tomato | ◈ Bacterial Spot<br>◈ Early Blight<br>◈ Late Blight<br>◈ Septoria Leaf Spot<br>◈ Yellow Leaf Curl Virus |
 
+* Utilized the 'Plant Village' dataset, consisting of around 67k images of diseased and healthy leaves from 9 plant species, to conduct exploratory data analysis (EDA) and gain insights into the dataset.
+
+* Developed an optimized Convolutional Neural Network (CNN) architecture specifically designed for plant disease classification. The CNN model achieved a validation accuracy of over 95% for all 9 plant species.
+
+* Visualized the training history of all CNN models to obtain an overview of their performance during the training process.
+
+* Designed a responsive frontend using HTML, CSS, and JavaScript to create an intuitive user interface for the application.
+
+* Integrated the frontend with a Flask framework backend, enabling smooth communication between the user interface and the underlying model.
+
+* Deployed the application on the Microsoft Azure cloud platform to ensure easy accessibility and scalability.
+
 ## Workflow
 <p align="center" style="text-align:center;">
     <img src = 'resources/krishi_workflow.png' />
