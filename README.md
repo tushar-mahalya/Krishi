@@ -1,7 +1,13 @@
 # __KRISHI__
 [![Repo Size](https://img.shields.io/github/repo-size/tushar-mahalya/Krishi?style=flat-square)](https://github.com/tushar-mahalya/Krishi)  ![License](https://img.shields.io/badge/license-MIT-red.svg)  ![Project Status](https://img.shields.io/badge/status-Completed-brightgreen.svg)
 
+## Introduction
 Krishi is a web application that allows users to detect diseases in plants by simply uploading pictures of their leaves. The application currently supports the detection of upto 21 common deseases in 9 different plants with an accuracy of more than 95%.  
+
+#### Demo Video -
+<p align="center" style="text-align:center;">
+    <img src = 'resources/project_demo.gif' />
+</p>
 
 | Plant | Disease |
 | --- | --- |
@@ -15,12 +21,14 @@ Krishi is a web application that allows users to detect diseases in plants by si
 | Strawberry | ◈ Leaf Scorch |
 | Tomato | ◈ Bacterial Spot<br>◈ Early Blight<br>◈ Late Blight<br>◈ Septoria Leaf Spot<br>◈ Yellow Leaf Curl Virus |
 
-
-
-#### Demo Video -
+## Workflow
 <p align="center" style="text-align:center;">
-    <img src = 'resources/project_demo.gif' />
+    <img src = 'resources/krishi_workflow.png' />
 </p>
+
+
+
+
 
 
 ## Getting started
